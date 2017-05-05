@@ -19,8 +19,8 @@ class Volunteer
   
   def update_attribute(type, attribute)
     send("#{type}=", attribute)
-    DB.exec("update volunteers set #{type} = '#{attribute}
-             where volunteer_id = '#{volunteer_id}")
+    DB.exec("update volunteers set #{type} = '#{attribute}'
+             where volunteer_id = '#{volunteer_id}'")
   end
 
   def delete
