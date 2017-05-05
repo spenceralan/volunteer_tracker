@@ -15,11 +15,25 @@ describe "Project" do
     end
   end
 
-    describe ".projects" do
+  describe ".projects" do
     it "returns an array of all volunteers" do
       new_project1.save
       new_project2.save
       expect(Organization.projects.length).to eq 2
     end
   end
+
+  describe ".assign_volunteer_to_project" do
+    it "adds a project to a volunteer" do
+      new_volunteer3 = Volunteer.new({name: "Captain Planet"})
+      new_volunteer3.save
+      new_project2.save
+      Organization.assign_project_to_volunteer(new_volunteer3.volunteer_id, new_project2.project_id)
+      expect(Volunteer.find(new_volunteer3.volunteer_id).project_id).to eq new_project2.project_id
+    end
+    
+    it "changes a project a volunteer is assigned to" do
+    end
+  end
+
 end

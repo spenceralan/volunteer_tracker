@@ -13,8 +13,13 @@ class Volunteer
   end
   
   def save
-    DB.exec("insert into volunteers (volunteer_id, name, project_id)
-             values ('#{volunteer_id}','#{name}','#{project_id}')")
+    unless project_id == nil
+      DB.exec("insert into volunteers (volunteer_id, name, project_id)
+               values ('#{volunteer_id}','#{name}','#{project_id}')")
+    else
+      DB.exec("insert into volunteers (volunteer_id, name)
+             values ('#{volunteer_id}','#{name}')")
+    end
   end
   
   def update_attribute(type, attribute)
