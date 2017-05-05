@@ -29,19 +29,33 @@ describe "Project" do
 
     it "preserves the id of the initial object" do
       new_project1.save
-      project = Project.objectify(results).first
-      expect(project.project_id).to eq new_project1.project_id
+      projects = Project.objectify(results).first
+      expect(projects.project_id).to eq new_project1.project_id
     end
 
     it "returns an array with a multiple Project objects" do
       new_project1.save
       new_project2.save
-      project = Project.objectify(results)
-      expect(project.length).to eq 2
+      projects = Project.objectify(results)
+      expect(projects.length).to eq 2
     end
   end
   
-  describe "#delete"
+  describe "#delete" do
+    it "deletes an entry from the database" do
+      new_project1.save
+      new_project1.delete
+      expect(results.to_a.length).to eq 0
+    end
+    it "deletes the correct entry from the database" do
+      new_project1.save
+      new_project2.save
+      new_project1.delete
+      projects = Project.objectify(results)
+      expect(projects.length).to eq 1
+      expect(projects.first.name).to eq "Save the Trees"
+    end
+  end
   
 end
 
