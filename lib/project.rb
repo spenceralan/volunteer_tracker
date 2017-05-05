@@ -11,13 +11,13 @@ class Project
   end
   
   def save
-    DB.exec("insert into projects (project, name)
+    DB.exec("insert into projects (project_id, name)
              values ('#{project_id}','#{name}')")
   end
   
   def update_attribute(type, attribute)
     send("#{type}=", attribute)
-    DB.exec("update volunteers set #{type} = '#{attribute}
+    DB.exec("update projects set #{type} = '#{attribute}
              where project_id = '#{project_id}")
   end
 
