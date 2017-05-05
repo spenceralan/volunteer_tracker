@@ -78,6 +78,15 @@ describe "Volunteer" do
       expect(new_volunteer1.project_id).to eq new_project2.project_id
     end
   end
+
+  describe ".find" do
+    it "returns the correct volunteer object when searched by volunteer id" do
+      new_volunteer1.save
+      new_volunteer2.save
+      expect(Volunteer.find(new_volunteer1.volunteer_id).volunteer_id).to eq new_volunteer1.volunteer_id
+    end
+    
+  end
   
 end
 
