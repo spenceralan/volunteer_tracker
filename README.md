@@ -28,6 +28,7 @@ Connect to postgres and create a database by running the following commands:
 
 * Ruby
 * Sinatra
+* Postgres
 * HTML
 * CSS
 * Bootstrap https://getbootstrap.com/
