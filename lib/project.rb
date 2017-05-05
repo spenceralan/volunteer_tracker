@@ -17,8 +17,8 @@ class Project
   
   def update_attribute(type, attribute)
     send("#{type}=", attribute)
-    DB.exec("update projects set #{type} = '#{attribute}
-             where project_id = '#{project_id}")
+    DB.exec("update projects set #{type} = '#{attribute}'
+             where project_id = '#{project_id}'")
   end
 
   def delete

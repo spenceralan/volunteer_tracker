@@ -47,6 +47,7 @@ describe "Project" do
       new_project1.delete
       expect(results.to_a.length).to eq 0
     end
+
     it "deletes the correct entry from the database" do
       new_project1.save
       new_project2.save
@@ -54,6 +55,16 @@ describe "Project" do
       projects = Project.objectify(results)
       expect(projects.length).to eq 1
       expect(projects.first.name).to eq "Save the Trees"
+    end
+  end
+  
+  describe "#update_attribute" do
+    it "updates the name of a project" do
+      new_project1.save
+      new_project1.update_attribute("name", "Save the Unicorns")
+      projects = Project.objectify(results)
+      expect(projects.first.name).to eq "Save the Unicorns"
+      expect(new_project1.name).to eq "Save the Unicorns"
     end
   end
   
