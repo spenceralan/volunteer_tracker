@@ -22,7 +22,7 @@ Connect to postgres and create a database by running the following commands:
 * create table volunteers (volunteer_id uuid primary key, name varchar, project_id uuid);
 * create table projects (project_id uuid primary key, name varchar);
 * create table hours (id uuid primary key, project_id uuid, volunteer_id uuid, date_worked date, hours int);
-* create database volunetter_tracker_test with template volunteer_tracker;
+* create database volunteer_tracker_test with template volunteer_tracker;
 
 ## Built With
 
