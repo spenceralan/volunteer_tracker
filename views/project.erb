@@ -1,0 +1,25 @@
+<div class = "container">
+
+  <div class = "row">
+
+    <div class = "col-md-6">
+
+    <%= "<h4>update project: #{@project.name}</h4>" %>
+    <div class = "form-group">
+      <form action= "/project" method = "post">
+        <input name="_method" type="hidden" value="patch">
+        <label>update name:</label>
+        <input class = "form-control" name="name">
+        <br>
+        <button type="submit" class = "btn btn-info" name = "project_id" value = "<%= @project.project_id %>">update</button>
+      </form>
+      <br>
+      <form action = "/project" method = "post">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class = "btn btn-danger" name = "project_id" value = "<%= @project.project_id %>">delete</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>

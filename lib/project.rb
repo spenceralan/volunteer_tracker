@@ -33,6 +33,7 @@ class Project
   end
 
   def self.find(project_id)
+    return nil unless project_id
     objectify(DB.exec("select * from projects where project_id = '#{project_id}'")).first
   end
 
