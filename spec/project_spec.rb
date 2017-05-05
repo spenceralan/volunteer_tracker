@@ -67,6 +67,15 @@ describe "Project" do
       expect(new_project1.name).to eq "Save the Unicorns"
     end
   end
-  
+
+  describe ".find" do
+    it "returns the correct project object when searched by project id" do
+      new_project1.save
+      new_project2.save
+      expect(Project.find(new_project1.project_id).project_id).to eq new_project1.project_id
+    end
+    
+  end
+    
 end
 

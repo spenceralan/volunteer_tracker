@@ -25,6 +25,10 @@ class Project
     DB.exec("delete from projects where project_id = '#{project_id}'")
   end
 
+  def self.find(project_id)
+    objectify(DB.exec("select * from projects where project_id = '#{project_id}'")).first
+  end
+
   def self.objectify(dataset)
     dataset.map do |record|
       Project.new({project_id: record["project_id"], name: record["name"]})

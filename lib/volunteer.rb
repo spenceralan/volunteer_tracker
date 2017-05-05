@@ -27,6 +27,10 @@ class Volunteer
     DB.exec("delete from volunteers where volunteer_id = '#{volunteer_id}'")
   end
 
+  def self.find(volunteer_id)
+    objectify(DB.exec("select * from volunteers where volunteer_id = '#{volunteer_id}'")).first
+  end
+
   def self.objectify(dataset)
     dataset.map do |record|
       Volunteer.new({volunteer_id: record["volunteer_id"], name: record["name"],
