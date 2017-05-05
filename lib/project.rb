@@ -27,7 +27,7 @@ class Project
 
   def self.objectify(dataset)
     dataset.map do |record|
-      Patron.new({project_id: record["project_id"], name: record["name"]})
+      Project.new({project_id: record["project_id"], name: record["name"]})
     end
   end
 
