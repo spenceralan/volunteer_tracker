@@ -18,7 +18,7 @@ get "/" do
 end
 
 post "/project" do
-  name = params.fetch("name")
+  name = params.fetch("project_name")
   project = Project.new({name: name})
   project.save
 
@@ -55,7 +55,7 @@ delete "/project" do
 end
 
 post "/volunteer" do
-  name = params.fetch("name")
+  name = params.fetch("volunteer_name")
   volunteer = Volunteer.new({name: name})
   volunteer.save
 
