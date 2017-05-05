@@ -11,14 +11,21 @@ class Project
   end
   
   def save
+    if invalid?(name)
+      return
+    end
     DB.exec("insert into projects (project_id, name)
              values ('#{project_id}','#{name}')")
   end
   
   def update_attribute(type, attribute)
-    send("#{type}=", attribute)
-    DB.exec("update projects set #{type} = '#{attribute}'
-             where project_id = '#{project_id}'")
+    if invalid?(attribute)
+      return
+    else
+      send("#{type}=", attribute)
+      DB.exec("update projects set #{type} = '#{attribute}'
+              where project_id = '#{project_id}'")
+    end
   end
 
   def delete
@@ -33,6 +40,12 @@ class Project
     dataset.map do |record|
       Project.new({project_id: record["project_id"], name: record["name"]})
     end
+  end
+
+  private
+
+  def invalid?(input)
+    input.match?(/\As*\z/)
   end
 
 end

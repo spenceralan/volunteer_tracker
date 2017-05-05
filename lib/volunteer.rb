@@ -13,6 +13,10 @@ class Volunteer
   end
   
   def save
+    if invalid?(name)
+      return
+    end
+    
     unless project_id == nil
       DB.exec("insert into volunteers (volunteer_id, name, project_id)
                values ('#{volunteer_id}','#{name}','#{project_id}')")
@@ -23,9 +27,13 @@ class Volunteer
   end
   
   def update_attribute(type, attribute)
-    send("#{type}=", attribute)
-    DB.exec("update volunteers set #{type} = '#{attribute}'
-             where volunteer_id = '#{volunteer_id}'")
+    if invalid?(attribute)
+      return
+    else
+      send("#{type}=", attribute)
+      DB.exec("update volunteers set #{type} = '#{attribute}'
+              where volunteer_id = '#{volunteer_id}'")
+    end
   end
 
   def delete
@@ -41,6 +49,12 @@ class Volunteer
       Volunteer.new({volunteer_id: record["volunteer_id"], name: record["name"],
                      project_id: record["project_id"]})
     end
+  end
+
+  private
+
+  def invalid?(input)
+    input.match?(/\As*\z/)
   end
 
 end
