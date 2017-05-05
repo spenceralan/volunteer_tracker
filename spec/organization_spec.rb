@@ -14,4 +14,12 @@ describe "Project" do
       expect(Organization.volunteers.length).to eq 2
     end
   end
+
+    describe ".projects" do
+    it "returns an array of all volunteers" do
+      new_project1.save
+      new_project2.save
+      expect(Organization.projects.length).to eq 2
+    end
+  end
 end
