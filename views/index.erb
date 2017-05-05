@@ -1,12 +1,54 @@
-<%= # sample index html
-# <form action="/phrase_parser">
-#   <div class="form-group">
-#      <label for="title">gimme phrase or word!</label>
-#      <input name="phrase1" class="form-control" type="text">
-#      <label for="title">gimme another!</label>
-#      <input name="phrase2" class="form-control" type="text">
-#   </div>
-#   <hr>
-#   <button action="/" class="btn btn-success">what am i?</button>
-# </form>
-%>
+<h2>admin area</h2>
+
+<div class = "container">
+
+  <div class = "row">
+
+      <div class = "col-md-6">
+
+      <h4>add a project</h4>
+      <div class = "form-group">
+        <form action= "/project" method = "post">
+          <label>name:</label>
+          <input class = "form-control" name="name">
+          <br>
+          <button type="submit" class = "btn btn-info">add</button>
+        </form>
+      </div>
+
+      <h4>projects:</hr>
+      <% if @projects.empty? %>
+      <%= "<h5>you don't have any projects. you should really think of something to do for free.</h5>" %>
+      <% else %>
+        <% @projects.each do |project| %>
+          <%= "<a href='project/#{project.project_id}'><h5>#{project.name}</h5></a>" %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <div class = "col-md-6">
+
+      <h4>add a volunteer</h4>
+      <div class = "form-group">
+        <form action= "/volunteer" method = "post">
+          <label>name:</label>
+          <input class = "form-control" name="name">
+          <br>
+          <button type="submit" class = "btn btn-info">add</button>
+        </form>
+      </div>
+
+      <h4>volunteers:</hr>
+      <% if @volunteers.empty? %>
+      <%= "<h5>you don't have any volunteers. you should really add at least yourself.</h5>" %>
+      <% else %>
+        <% @volunteers.each do |volunteer| %>
+          <%= "<a href='volunteer/#{volunteer.volunteer_id}'><h5>#{volunteer.name}</h5></a>" %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+  
+</div>
