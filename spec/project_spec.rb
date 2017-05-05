@@ -27,6 +27,12 @@ describe "Project" do
       expect(project.name).to eq "Save the Whales"
     end
 
+    it "preserves the id of the initial object" do
+      new_project1.save
+      project = Project.objectify(results).first
+      expect(project.project_id).to eq new_project1.project_id
+    end
+
     it "returns an array with a multiple Project objects" do
       new_project1.save
       new_project2.save
@@ -35,6 +41,7 @@ describe "Project" do
     end
   end
   
+  describe "#delete"
   
 end
 
