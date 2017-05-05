@@ -12,7 +12,7 @@ Bundler
 
 ### Installing
 
-Installation is quick and easy! You can clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. You will need to follow the steps in 'Setting Up Your Environment' to create the necessary database structure. After you run 'app.rb' you will need to copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567
+Installation is quick and easy! You can clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing $'ruby app.rb'. You will need to follow the steps in 'Setting Up Your Environment' to create the necessary database structure. After you run 'app.rb' you will need to copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567
 
 #### Setting Up Your Environment (SQL)
 
