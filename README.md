@@ -1,4 +1,5 @@
 # Volunteer Tracker
+## (Work in Progress - ActiveRecord Implementation)
 
 This web app is desiged to help a nonprofit organization to track its volunteers. The user will have the option to add, delete, update, and view both the projects that the organization has going and also the volunteers who are assigned to those projects.
 
