@@ -1,4 +1,4 @@
-require "helper_spec"
+require "spec_helper"
 
 describe "Volunteer" do
   let(:new_project1) { Project.new( {:name => "Save the Whales"} ) }

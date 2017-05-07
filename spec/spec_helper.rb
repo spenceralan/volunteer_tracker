@@ -3,9 +3,10 @@ require("pg")
 require("project")
 require("volunteer")
 require("organization")
-require ("securerandom")
+require("securerandom")
+require("capybara/rspec")
 
-DB = PG.connect({:dbname => "volunteer_tracker_test"})
+ENV["rack_env"] = "test"
 
 RSpec.configure do |config|
   config.after(:each) do
