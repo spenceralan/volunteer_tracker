@@ -14,8 +14,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    ar-uuid (0.1.2)
-      activerecord
     arel (8.0.0)
     backports (3.8.0)
     capybara (2.14.0)
@@ -89,7 +87,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ar-uuid
   capybara
   pg
   pry
